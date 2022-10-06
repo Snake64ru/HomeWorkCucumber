@@ -2,8 +2,6 @@ package PageSteps;
 
 import com.codeborne.selenide.Condition;
 import io.cucumber.java.en.When;
-import io.cucumber.java.ru.Когда;
-import io.qameta.allure.Step;
 
 import static PageObject.PageElements.AutorizePage.*;
 import static com.codeborne.selenide.Selenide.open;
