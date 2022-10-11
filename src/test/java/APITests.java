@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import static PageSteps.APITestMortySteps.*;
-import static PageSteps.APITestTomato.*;
+import static PageObject.PageElements.PageSteps.APITestMortySteps.*;
+import static PageObject.PageElements.PageSteps.APITestTomato.*;
 
 public class APITests extends APIHooks {
     @Test

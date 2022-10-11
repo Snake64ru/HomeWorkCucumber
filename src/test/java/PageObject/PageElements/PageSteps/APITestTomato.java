@@ -1,4 +1,4 @@
-package PageSteps;
+package PageObject.PageElements.PageSteps;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;

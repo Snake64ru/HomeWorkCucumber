@@ -1,4 +1,4 @@
-package PageSteps;
+package PageObject.PageElements.PageSteps;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -6,33 +6,34 @@ import io.cucumber.java.en.Then;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 
+import java.time.Duration;
+
 import static PageObject.PageElements.ProjectPage.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class ProjectPageSteps {
-    @Step("Выполняем задания")
-    @Then("Вывести в консоль количество задач")
+    @Step("Считаем количество задач")
     public static void getTasksCount() {
         //pageTasks.click();
-        SelenideElement selenideElement = pagesCountElem.shouldBe(Condition.visible);
+        SelenideElement selenideElement = pagesCountElem.shouldBe(visible);
         String count = pagesCountElem.getOwnText();
         System.out.println("Here we have " + count.split(" ")[2] + " tasks.");
-        //Разобраться с кодировкой
     }
-    @Then("Проверить статус задачи и версию")
+    @Step("Проверка статуса задачи и версию")
     public static void testSeleniumBug() {
-        allTasksAndFilters.shouldBe(Condition.visible).click();
-        inputNameTask.shouldBe(Condition.visible).sendKeys("TestSelenium_bug");
+        allTasksAndFilters.shouldBe(visible, Duration.ofSeconds(20)).click();
+        inputNameTask.shouldBe(visible).sendKeys("TestSelenium_bug");
         searchButton.click();
         assertStatus.shouldHave(Condition.text("Сделать"));
         assertVersion.shouldHave(Condition.text("Version 2.0"));
     }
-    @Then("Создать новый баг")
+    @Step("Создание бага")
     public static void testNewBug() {
         createLink.click();
         typeTask.click();
         typeTask.sendKeys(Keys.DELETE);
-        typeTask.shouldBe(Condition.visible).setValue("О");
+        typeTask.shouldBe(visible).setValue("О");
         typeTask.pressEnter();
         themeTask.click();
         themeTask.sendKeys("Не меняется цена после смены валюты");
@@ -59,7 +60,7 @@ public class ProjectPageSteps {
         versionAreaDescription.click();
         propertyTask.click();
         propertyTask.sendKeys(Keys.DELETE);
-        propertyTask.shouldBe(Condition.visible).sendKeys("H");
+        propertyTask.shouldBe(visible).sendKeys("H");
         propertyTask.pressEnter();
         labelTask.click();
         labelTask.sendKeys("sonnov_test");
@@ -75,7 +76,7 @@ public class ProjectPageSteps {
         sleep(1000);
         create.click();
     }
-    @Then("Перевести статус на Готово")
+    @Step("Перевод статуса на Готово")
     public static void myTask(){
         myTask.click();
         statusInWork.click();
