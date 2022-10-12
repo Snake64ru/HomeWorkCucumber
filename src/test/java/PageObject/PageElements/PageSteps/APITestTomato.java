@@ -32,11 +32,13 @@ public class APITestTomato {
         Response response = given()
                 .baseUri(url)
                 .contentType("application/json;charset=UTF-8")
+                .log().all()
                 .when()
                 .body(jsonObject.toString())
                 .post("/api/users")
                 .then()
                 .statusCode(201)
+                .log().all()
                 .extract().response();
 
         String tomato = response.getBody().asString();
