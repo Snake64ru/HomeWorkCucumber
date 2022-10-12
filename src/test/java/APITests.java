@@ -1,5 +1,7 @@
 import hooks.APIHooks;
 import org.json.JSONObject;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -9,6 +11,8 @@ import static PageObject.PageElements.PageSteps.APITestTomato.*;
 
 public class APITests extends APIHooks {
     @Test
+    @Tag("APITests")
+    @DisplayName("Вытаскиваем данные и сравниваем их")
     public void mortyy() {
 
         JSONObject mortyJson = new JSONObject(morty());
@@ -19,6 +23,8 @@ public class APITests extends APIHooks {
 
 
     @Test
+    @Tag("APITests")
+    @DisplayName("Создаем тест запрос и делаем проверку")
     public void potato() throws IOException {
 
         JSONObject jsonObject = getJO("potato.json");
