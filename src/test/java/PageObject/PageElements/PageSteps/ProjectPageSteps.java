@@ -14,6 +14,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class ProjectPageSteps {
     @Step("Считаем количество задач")
+    @Then("Считаем количество задач")
     public static void getTasksCount() {
         //pageTasks.click();
         SelenideElement selenideElement = pagesCountElem.shouldBe(visible);
@@ -21,6 +22,7 @@ public class ProjectPageSteps {
         System.out.println("Here we have " + count.split(" ")[2] + " tasks.");
     }
     @Step("Проверка статуса задачи и версию")
+    @Then("Проверить статус задачи и версию")
     public static void testSeleniumBug() {
         allTasksAndFilters.shouldBe(visible, Duration.ofSeconds(20)).click();
         inputNameTask.shouldBe(visible).sendKeys("TestSelenium_bug");
@@ -29,6 +31,7 @@ public class ProjectPageSteps {
         assertVersion.shouldHave(Condition.text("Version 2.0"));
     }
     @Step("Создание бага")
+    @Then("Создать новый баг")
     public static void testNewBug() {
         createLink.click();
         typeTask.click();
@@ -77,6 +80,7 @@ public class ProjectPageSteps {
         create.click();
     }
     @Step("Перевод статуса на Готово")
+    @Then("Перевести статус на Готово")
     public static void myTask(){
         myTask.click();
         statusInWork.click();

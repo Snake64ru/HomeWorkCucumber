@@ -3,7 +3,7 @@ Feature: Подсчёт задач в проекте
 
   @homeWorkCucumber
   Scenario: Подсчёт задач
-    When Открываем страницу авторизации "https://edujira.ifellow.ru/"
+    When Открываем страницу авторизации https://edujira.ifellow.ru/login.jsp
     When Пользователь авторизовывается
     Then Открыть объект
     Then Вывести в консоль количество задач

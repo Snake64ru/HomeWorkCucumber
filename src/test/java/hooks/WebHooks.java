@@ -2,6 +2,7 @@ package hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterAll;
@@ -14,6 +15,7 @@ import static com.codeborne.selenide.Selenide.closeWebDriver;
 public class WebHooks {
 
         @BeforeAll
+        @Before
         static void webDriver() {
             WebDriver driver;
             System.setProperty("webdriver.chrome.driver", "./src/test/resources/WebDriver/chromedriver.exe");
@@ -23,6 +25,7 @@ public class WebHooks {
         }
 
         @BeforeAll
+        @Before
         static void allureSettings() {
             new AllureSelenide()
                     .screenshots(true)
@@ -30,6 +33,7 @@ public class WebHooks {
         }
 
         @AfterAll
+        @After
         static void webDriverClose() {
             closeWebDriver();
         }

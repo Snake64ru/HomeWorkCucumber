@@ -3,8 +3,10 @@ Feature: Выполняем тесты
 
   @homeWorkCucumber
   Scenario: Создаем баг и меняем его статус
-    When Открываем страницу авторизации "https://edujira.ifellow.ru/"
+    When Открываем страницу авторизации https://edujira.ifellow.ru/login.jsp
+    When Пользователь авторизовывается
     Then Открыть объект
+    Then Считаем количество задач
     Then Проверить статус задачи и версию
     Then Создать новый баг
     Then Перевести статус на Готово
